@@ -4,4 +4,71 @@ h1 {
     text-align: center;
     font-family: "Source Sans Pro", sans-serif;
     font-weight: normal;
+    color: pink;
+}
+
+body {
+    background-color: lightblue;
+
+}
+
+
+
+h2 {
+    text-decoration: none;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+
+}
+
+button:hover {
+    background-color: black;
+}
+
+button {
+    margin-left: 1200px;
+    margin-top: 100px;
+    border-radius: 50px;
+    background-color: yellow;
+    z-index: 100;
+
+
+}
+
+img {
+    margin-left: 800px;
+
+}
+
+.gif {
+    margin-left: 290px;
+    margin-top: 50px;
+    border-radius: 50px;
+}
+
+a:hover {
+    color: pink;
+}
+
+a {
+    color: green;
+    text-decoration: none;
+}
+
+.cookie1 {
+    margin-left: 1200px;
+    margin-top: -400px
+}
+
+.cookie2 {
+    margin-left: -600px;
+    margin-top: -907px;
+}
+
+.neko {
+    margin-left: 117px;
+
 }
