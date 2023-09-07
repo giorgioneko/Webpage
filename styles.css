@@ -59,13 +59,15 @@ a {
 }
 
 .cookie1 {
-    margin-left: 1200px;
-    margin-top: -400px
+    position: relative;
+    left: 1000px;
+    top: -400px
 }
 
 .cookie2 {
-    margin-left: -600px;
-    margin-top: -907px;
+    position: relative;
+    left: -600px;
+    bottom: 82em;
 }
 
 .neko {
