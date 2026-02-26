@@ -26,6 +26,24 @@
       });
     </script>
 
+    <!-- Event snippet for Click to call conversion page -->
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17975842669/SGgYCJfilf8bEO2uxvtC',
+          'value': 1.0,
+          'currency': 'EUR',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
+
     <!-- Load external CSS styles -->
     <link rel="stylesheet" href="styles.css">
     <style>
