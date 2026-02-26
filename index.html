@@ -19,6 +19,14 @@
       gtag('config', 'G-R1PP1Z3BXL');
     </script>
 
+    <!-- Event snippet for Test (web) purchase (page load) -->
+    <script>
+      gtag('event', 'purchase', {
+        'send_to': 'AW-17974174858',
+        'transaction_id': Date.now().toString(36) + Math.random().toString(36).slice(2)
+      });
+    </script>
+
     <!-- Event snippet for Purchase conversion page -->
     <script>
     function gtag_report_purchase(btn) {
