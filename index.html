@@ -15,6 +15,7 @@
       gtag('js', new Date());
 
       gtag('config', 'AW-17975842669');
+      gtag('config', 'AW-17974174858');
       gtag('config', 'G-R1PP1Z3BXL');
     </script>
 
@@ -52,6 +53,19 @@
     }
     </script>
 
+    <!-- Event snippet for Sign-up conversion page -->
+    <script>
+    function gtag_report_signup(btn) {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17974174858/l3nnCJPdl_8bEIrJ4PpC',
+        'transaction_id': Date.now().toString(36) + Math.random().toString(36).slice(2)
+      });
+      btn.textContent = 'Signed up!';
+      btn.disabled = true;
+      return false;
+    }
+    </script>
+
     <!-- Load external CSS styles -->
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -63,6 +77,7 @@
         <h1>My ネコページ</h1>
         <a href="tel:0644834265" onclick="return gtag_report_conversion('tel:0644834265')">0644834265</a>
         <button onclick="gtag_report_purchase(this)">Buy</button>
+        <button onclick="gtag_report_signup(this)">Sign up</button>
     </div>
 
     <div class='neko'>
