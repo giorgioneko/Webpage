@@ -20,13 +20,15 @@
 
     <!-- Event snippet for Purchase conversion page -->
     <script>
-    function gtag_report_purchase() {
+    function gtag_report_purchase(btn) {
       gtag('event', 'conversion', {
         'send_to': 'AW-17975842669/QcbWCNXgp_8bEO2uxvtC',
         'value': 1.0,
         'currency': 'EUR',
         'transaction_id': Date.now().toString(36) + Math.random().toString(36).slice(2)
       });
+      btn.textContent = 'Purchased!';
+      btn.disabled = true;
       return false;
     }
     </script>
@@ -60,7 +62,7 @@
     <div>
         <h1>My ネコページ</h1>
         <a href="tel:0644834265" onclick="return gtag_report_conversion('tel:0644834265')">0644834265</a>
-        <button onclick="gtag_report_purchase()">Buy</button>
+        <button onclick="gtag_report_purchase(this)">Buy</button>
     </div>
 
     <div class='neko'>
