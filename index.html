@@ -1,38 +1,47 @@
 <!doctype html>
-<html lang="eng-us">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="google-adsense-account" content="ca-pub-8929247676819802">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-adsense-account" content="ca-pub-8929247676819802">
 
-    <title>Neko Page</title>
-    <link rel="icon" type="image/x-icon" href="neko-icon-16.jpg">
+  <title>My ネコ Page</title>
+  <link rel="icon" type="image/x-icon" href="neko-icon-16.jpg">
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8929247676819802" crossorigin="anonymous"></script>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@500;700&display=swap"
+    rel="stylesheet">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17975842669"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'AW-17975842669');
-      gtag('config', 'AW-17974174858');
-      gtag('config', 'G-R1PP1Z3BXL');
-    </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8929247676819802"
+    crossorigin="anonymous"></script>
 
-    <!-- Event snippet for Test (web) purchase (page load) -->
-    <script>
-      gtag('event', 'purchase', {
-        'send_to': 'AW-17974174858',
-        'transaction_id': Date.now().toString(36) + Math.random().toString(36).slice(2)
-      });
-    </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17975842669"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-    <!-- Event snippet for Purchase conversion page -->
-    <script>
+    gtag('config', 'AW-17975842669');
+    gtag('config', 'AW-17974174858');
+    gtag('config', 'G-R1PP1Z3BXL');
+  </script>
+
+  <!-- Event snippet for Test (web) purchase (page load) -->
+  <script>
+    gtag('event', 'purchase', {
+      'send_to': 'AW-17974174858',
+      'transaction_id': Date.now().toString(36) + Math.random().toString(36).slice(2)
+    });
+  </script>
+
+  <!-- Event snippet for Purchase conversion page -->
+  <script>
     function gtag_report_purchase(btn) {
       gtag('event', 'conversion', {
         'send_to': 'AW-17975842669/QcbWCNXgp_8bEO2uxvtC',
@@ -42,31 +51,32 @@
       });
       btn.textContent = 'Purchased!';
       btn.disabled = true;
+      btn.classList.add('btn-success');
       return false;
     }
-    </script>
+  </script>
 
-    <!-- Event snippet for Click to call conversion page -->
-    <script>
+  <!-- Event snippet for Click to call conversion page -->
+  <script>
     function gtag_report_conversion(url) {
       var callback = function () {
-        if (typeof(url) != 'undefined') {
+        if (typeof (url) != 'undefined') {
           window.location = url;
         }
       };
       gtag('event', 'conversion', {
-          'send_to': 'AW-17975842669/SGgYCJfilf8bEO2uxvtC',
-          'value': 1.0,
-          'currency': 'EUR',
-          'transaction_id': Date.now().toString(36) + Math.random().toString(36).slice(2),
-          'event_callback': callback
+        'send_to': 'AW-17975842669/SGgYCJfilf8bEO2uxvtC',
+        'value': 1.0,
+        'currency': 'EUR',
+        'transaction_id': Date.now().toString(36) + Math.random().toString(36).slice(2),
+        'event_callback': callback
       });
       return false;
     }
-    </script>
+  </script>
 
-    <!-- Event snippet for Sign-up conversion page -->
-    <script>
+  <!-- Event snippet for Sign-up conversion page -->
+  <script>
     function gtag_report_signup(btn) {
       gtag('event', 'conversion', {
         'send_to': 'AW-17974174858/l3nnCJPdl_8bEIrJ4PpC',
@@ -74,46 +84,121 @@
       });
       btn.textContent = 'Signed up!';
       btn.disabled = true;
+      btn.classList.add('btn-success');
       return false;
     }
-    </script>
+  </script>
 
-    <!-- Load external CSS styles -->
-    <link rel="stylesheet" href="styles.css">
-    <style>
-    </style>
+  <!-- Load external CSS styles -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div>
-        <h1>My ネコページ</h1>
-        <a href="tel:0644834265" onclick="return gtag_report_conversion('tel:0644834265')">0644834265</a>
-        <button onclick="gtag_report_purchase(this)">Buy</button>
-        <button onclick="gtag_report_signup(this)">Sign up</button>
+
+  <!-- Hero Background Effects -->
+  <div class="glow-bg glow-1"></div>
+  <div class="glow-bg glow-2"></div>
+  <div class="glow-bg glow-3"></div>
+
+  <main class="container">
+
+    <header class="header card glass">
+      <div class="title-container">
+        <h1 class="gradient-text">My ネコページ</h1>
+        <p class="subtitle">Welcome to the premium Neko experience</p>
+      </div>
+
+      <div class="cta-actions">
+        <a class="contact-link btn" href="tel:0644834265" onclick="return gtag_report_conversion('tel:0644834265')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+            </path>
+          </svg>
+          0644834265
+        </a>
+        <div class="button-group">
+          <button class="btn btn-primary" onclick="gtag_report_purchase(this)">Buy Premium</button>
+          <button class="btn btn-secondary" onclick="gtag_report_signup(this)">Sign up Now</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="gallery-grid">
+      <div class="card glass feature-card">
+        <div class="image-wrapper">
+          <img alt="Neko Main" src="1.jpg" class="hover-zoom">
+        </div>
+      </div>
+
+      <div class="card glass link-card">
+        <div class="content-wrapper">
+          <a class="external-link" href="https://orteil.dashnet.org/cookieclicker" target="_blank"
+            rel="noopener noreferrer">
+            <div class="link-content">
+              <span class="emoji">🍪</span>
+              <h2 class="gradient-text">Cookie Clicker</h2>
+              <p>Play the classic</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="card glass gif-card">
+        <div class="image-wrapper gif-wrapper">
+          <img alt="Kaomoji fun" src="kaomoji.gif" class="float-anim">
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Vertical scrolling cookie banners -->
+  <div class="cookie-banner banner-left">
+    <div class="cookie-track track-up">
+      <!-- Set 1 (20 items) -->
+      <img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt="">
+      <!-- Set 2 (20 items) -->
+      <img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt="">
     </div>
-
-    <div class='neko'>
-        <img alt src=1.jpg>
+  </div>
+  <div class="cookie-banner banner-right">
+    <div class="cookie-track track-down">
+      <!-- Set 1 (20 items) -->
+      <img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt="">
+      <!-- Set 2 (20 items) -->
+      <img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img src="9_transparent.png" alt=""><img
+        src="9_transparent.png" alt=""><img src="9_transparent.png" alt="">
     </div>
+  </div>
 
-    <div>
-
-        <button>
-            <h2><a href="https://orteil.dashnet.org/cookieclicker">cookie clicker</a></h2>
-        </button>
-    </div>
-    <div class="gif">
-        <img alt src="kaomoji.gif">
-
-    </div>
-
-    <div>
-        <img class="cookie1" alt  src=9.jpg>
-        <img class="cookie2" alt  src=9.jpg>
-       
-    </div>
-
-            <!-- Load external JavaScript -->
-    <script src="scripts.js"></script>
+  <!-- Load external JavaScript -->
+  <script src="scripts.js"></script>
 </body>
+
 </html>

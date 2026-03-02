@@ -1,0 +1,24 @@
+{
+  "name": "webpage",
+  "version": "1.0.0",
+  "description": "A boring webpage",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giorgioneko/Webpage.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/giorgioneko/Webpage/issues"
+  },
+  "homepage": "https://github.com/giorgioneko/Webpage#readme",
+  "dependencies": {
+    "jimp": "^1.6.0"
+  }
+}
