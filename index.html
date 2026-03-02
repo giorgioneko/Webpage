@@ -120,8 +120,12 @@
         </a>
         <div class="button-group">
           <button class="btn btn-primary" onclick="gtag_report_purchase(this)">Buy Premium</button>
-          <button class="btn btn-secondary" onclick="gtag_report_signup(this)">Sign up Now</button>
+          <form id="subscribe-form" class="subscribe-form" onsubmit="handleSubscribe(event)">
+            <input type="email" id="email-input" class="input-email" placeholder="Get weekly cat games..." required>
+            <button type="submit" class="btn btn-secondary">Sign up Now</button>
+          </form>
         </div>
+        <p id="subscribe-message" class="subscribe-message"></p>
       </div>
     </header>
 

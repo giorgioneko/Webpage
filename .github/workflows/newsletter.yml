@@ -1,0 +1,31 @@
+name: Weekly Cat Game Newsletter
+
+on:
+  schedule:
+    # Runs at 12:00 PM UTC every Friday
+    - cron: '0 12 * * 5'
+  workflow_dispatch: # Allows manual triggering from GitHub UI for testing
+
+jobs:
+  send-newsletter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: |
+          npm install @supabase/supabase-js nodemailer rss-parser
+
+      - name: Run Newsletter Script
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: node scripts/sendNewsletter.js

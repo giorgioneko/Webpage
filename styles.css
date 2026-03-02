@@ -184,6 +184,44 @@ h2 {
   box-shadow: 0 4px 15px rgba(35, 134, 54, 0.3) !important;
 }
 
+/* Subscription Form */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-email {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  min-width: 250px;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.input-email:focus {
+  border-color: var(--accent-1);
+  box-shadow: 0 0 10px rgba(255, 113, 154, 0.2);
+}
+
+.subscribe-message {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--accent-1);
+  min-height: 1.2rem;
+}
+
 .contact-link {
   color: var(--text-primary);
   opacity: 0.8;
