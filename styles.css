@@ -239,6 +239,35 @@ img {
   }
 }
 
+.flex-col-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-img-wrapper {
+  flex-grow: 1;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.card-footer {
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: center;
+  border-bottom-left-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+}
+
+.btn-game {
+  width: 100%;
+  max-width: 400px;
+  padding: 1rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
 /* Custom Content Layouts */
 .link-card .content-wrapper {
   height: 100%;
