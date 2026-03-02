@@ -88,6 +88,27 @@ async function handleSubscribe(event) {
             throw new Error('API_ERROR');
         }
 
+        // ----------------------------------------------------------------------------------
+        // CONFIRMATION EMAIL: Ping the Google Apps Webhook to send the welcome email!
+        // Paste your Google Apps Script Web App URL here:
+        // ----------------------------------------------------------------------------------
+        const CONFIRMATION_WEBHOOK_URL = "";
+
+        if (CONFIRMATION_WEBHOOK_URL !== "") {
+            try {
+                await fetch(CONFIRMATION_WEBHOOK_URL, {
+                    method: "POST",
+                    mode: "no-cors",       // Prevents browser CORS blocks since the script doesn't return classic headers
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+            } catch (webhookErr) {
+                console.error("Warning: Could not trigger confirmation email webhook.", webhookErr);
+            }
+        }
+
         // Success UI handling
         messageEl.style.color = "#238636"; // Green
         messageEl.textContent = "Successfully subscribed to the weekly cat games newsletter!";
