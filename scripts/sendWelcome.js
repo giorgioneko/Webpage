@@ -33,9 +33,13 @@ async function run() {
             }
         });
 
+        // Hide personal email by using a Gmail + alias
+        const emailParts = GMAIL_USER.split('@');
+        const aliasEmail = `${emailParts[0]}+newsletter@${emailParts[1]}`;
+
         // Send the email
         const info = await transporter.sendMail({
-            from: `"Neko Page" <${GMAIL_USER}>`,
+            from: `"Neko Page" <${aliasEmail}>`,
             to: TARGET_EMAIL,
             subject: '🐾 Welcome to the Newsletter!',
             html: htmlContent
