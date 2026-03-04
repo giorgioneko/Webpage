@@ -88,33 +88,6 @@ async function handleSubscribe(event) {
             throw new Error('API_ERROR');
         }
 
-        // ----------------------------------------------------------------------------------
-        // CONFIRMATION EMAIL: Trigger the GitHub Actions Welcome Email workflow!
-        // You MUST provide a GitHub Personal Access Token (PAT) with 'repo' scope here.
-        // ----------------------------------------------------------------------------------
-        const GITHUB_PAT = "YOUR_GITHUB_PAT";
-        const REPO_OWNER = "giorgioneko";
-        const REPO_NAME = "Webpage";
-
-        if (GITHUB_PAT !== "YOUR_GITHUB_PAT") {
-            try {
-                await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/dispatches`, {
-                    method: "POST",
-                    headers: {
-                        "Accept": "application/vnd.github.v3+json",
-                        "Authorization": `token ${GITHUB_PAT}`,
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        event_type: "send-welcome-email",
-                        client_payload: { email: email }
-                    })
-                });
-            } catch (webhookErr) {
-                console.error("Warning: Could not trigger GitHub confirmation email.", webhookErr);
-            }
-        }
-
         // Success UI handling
         messageEl.style.color = "#238636"; // Green
         messageEl.textContent = "Successfully subscribed to the weekly cat games newsletter!";
