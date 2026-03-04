@@ -89,23 +89,29 @@ async function handleSubscribe(event) {
         }
 
         // ----------------------------------------------------------------------------------
-        // CONFIRMATION EMAIL: Ping the Google Apps Webhook to send the welcome email!
-        // Paste your Google Apps Script Web App URL here:
+        // CONFIRMATION EMAIL: Trigger the GitHub Actions Welcome Email workflow!
+        // You MUST provide a GitHub Personal Access Token (PAT) with 'repo' scope here.
         // ----------------------------------------------------------------------------------
-        const CONFIRMATION_WEBHOOK_URL = "";
+        const GITHUB_PAT = "YOUR_GITHUB_PAT";
+        const REPO_OWNER = "giorgioneko";
+        const REPO_NAME = "Webpage";
 
-        if (CONFIRMATION_WEBHOOK_URL !== "") {
+        if (GITHUB_PAT !== "YOUR_GITHUB_PAT") {
             try {
-                await fetch(CONFIRMATION_WEBHOOK_URL, {
+                await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/dispatches`, {
                     method: "POST",
-                    mode: "no-cors",       // Prevents browser CORS blocks since the script doesn't return classic headers
                     headers: {
+                        "Accept": "application/vnd.github.v3+json",
+                        "Authorization": `token ${GITHUB_PAT}`,
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ email: email })
+                    body: JSON.stringify({
+                        event_type: "send-welcome-email",
+                        client_payload: { email: email }
+                    })
                 });
             } catch (webhookErr) {
-                console.error("Warning: Could not trigger confirmation email webhook.", webhookErr);
+                console.error("Warning: Could not trigger GitHub confirmation email.", webhookErr);
             }
         }
 
