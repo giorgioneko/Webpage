@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/giorgioneko/Webpage#readme",
   "dependencies": {
-    "jimp": "^1.6.0"
+    "sharp": "^0.34.5"
   }
 }

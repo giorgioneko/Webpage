@@ -1,16 +1,22 @@
-const { Jimp } = require('jimp');
+const sharp = require('sharp');
 
 async function main() {
     try {
-        const image = await Jimp.read('9.jpg');
+        // Load image and ensure it has an alpha channel
+        const imageInfo = await sharp('9.jpg')
+            .ensureAlpha()
+            .raw()
+            .toBuffer({ resolveWithObject: true });
 
-        const width = image.bitmap.width;
-        const height = image.bitmap.height;
+        // data is a TypedArray (Uint8Array) of raw pixels
+        const { data, info } = imageInfo;
+        const width = info.width;
+        const height = info.height;
 
         // Use the top-left pixel as the background color
-        const bgR = image.bitmap.data[0];
-        const bgG = image.bitmap.data[1];
-        const bgB = image.bitmap.data[2];
+        const bgR = data[0];
+        const bgG = data[1];
+        const bgB = data[2];
 
         const threshold = 55; // Tolerance
 
@@ -40,11 +46,11 @@ async function main() {
         let head = 0;
         while (head < queue.length) {
             const { x, y } = queue[head++];
-            const idx = (y * width + x) * 4;
+            const idx = (y * width + x) * 4; // 4 channels (RGBA)
 
-            const r = image.bitmap.data[idx];
-            const g = image.bitmap.data[idx + 1];
-            const b = image.bitmap.data[idx + 2];
+            const r = data[idx];
+            const g = data[idx + 1];
+            const b = data[idx + 2];
 
             const distance = Math.sqrt(
                 Math.pow(r - bgR, 2) +
@@ -54,7 +60,7 @@ async function main() {
 
             if (distance < threshold) {
                 // Set transparent
-                image.bitmap.data[idx + 3] = 0;
+                data[idx + 3] = 0;
 
                 const neighbors = [
                     { x: x + 1, y: y },
@@ -75,10 +81,20 @@ async function main() {
             }
         }
 
-        image.autocrop();
+        // Create new image from modified pixels, trim transparent edges and save
+        await sharp(data, {
+            raw: {
+                width,
+                height,
+                channels: 4
+            }
+        })
+        .trim({ threshold: 0 }) 
+        .png()                  
+        .toFile('9_transparent.png');
 
-        await image.write('9_transparent.png');
         console.log('Successfully created solid flood-filled transparent cookie image.');
+
     } catch (err) {
         console.error('Error processing image:', err);
     }
